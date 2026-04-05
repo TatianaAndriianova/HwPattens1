@@ -42,9 +42,7 @@ public class DataGenerator {
      * поэтому берём только первые два токена и меняем порядок на Фамилия Имя.
      */
     public static String generateName() {
-        String lastName = faker.name().lastName();
-        String firstName = faker.name().firstName();
-        return (lastName + " " + firstName)
+        return (faker.name().fullName())
                 .replace("ё", "е")
                 .replace("Ё", "Е");
     }
