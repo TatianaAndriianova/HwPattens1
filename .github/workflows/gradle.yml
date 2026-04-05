@@ -1,6 +1,6 @@
 name: Java CI with Gradle
 
-on: [push, pull_request]
+on: [ push, pull_request ]
 
 jobs:
   build:
@@ -20,3 +20,10 @@ jobs:
         run: java -jar ./artifacts/app-replan-delivery.jar &
       - name: Build with Gradle
         run: ./gradlew test -Dselenide.headless=true --info
+
+      - name: Upload test reports
+        uses: actions/upload-artifact@v4
+        if: always()   # загружать даже при падении тестов
+        with:
+          name: test-reports
+          path: build/reports/tests/
