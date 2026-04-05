@@ -18,7 +18,7 @@ public class CardDeliveryTest {
     @BeforeEach
     public void setUp() {
         Configuration.baseUrl = "http://localhost:9999/";
-        //  open("");
+        open("");
     }
 
     @Test
