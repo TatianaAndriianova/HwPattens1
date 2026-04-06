@@ -28,10 +28,10 @@ public class CardDeliveryTest {
         String secondDate = DataGenerator.generateDate(7);
 
         fillAndSubmitForm(user, firstDate);
-        $("[data-test-id=notification]")
+        $("[data-test-id=success-notification]")
                 .shouldBe(Condition.visible, Duration.ofSeconds(15));
-        $("[data-test-id=notification] .notification__content")
-                .shouldHave(Condition.text("Встреча успешно забронирована на " + firstDate));
+        $("[data-test-id=success-notification] .notification__content")
+                .shouldHave(Condition.text("Встреча успешно запланирована на " + firstDate));
 
         $("[data-test-id=date] input").sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE);
         $("[data-test-id=date] input").setValue(secondDate);
@@ -42,10 +42,10 @@ public class CardDeliveryTest {
         $("[data-test-id=replan-notification] button")
                 .click();
 
-        $("[data-test-id=notification]")
+        $("[data-test-id=success-notification]")
                 .shouldBe(Condition.visible, Duration.ofSeconds(15));
-        $("[data-test-id=notification] .notification__content")
-                .shouldHave(Condition.text("Встреча успешно забронирована на " + secondDate));
+        $("[data-test-id=success-notification] .notification__content")
+                .shouldHave(Condition.text("Встреча успешно запланирована на " + secondDate));
     }
 
     @Test
@@ -54,10 +54,10 @@ public class CardDeliveryTest {
         String date = DataGenerator.generateDate(3);
         fillAndSubmitForm(user, date);
 
-        $("[data-test-id=notification]")
+        $("[data-test-id=success-notification]")
                 .shouldBe(Condition.visible, Duration.ofSeconds(15));
-        $("[data-test-id=notification] .notification__content")
-                .shouldHave(Condition.text("Встреча успешно забронирована на " + date));
+        $("[data-test-id=success-notification] .notification__content")
+                .shouldHave(Condition.text("Встреча успешно запланирована на " + date));
     }
 
     @Test
@@ -66,10 +66,10 @@ public class CardDeliveryTest {
         String date = DataGenerator.generateDate(10);
         fillAndSubmitForm(user, date);
 
-        $("[data-test-id=notification]")
+        $("[data-test-id=success-notification]")
                 .shouldBe(Condition.visible, Duration.ofSeconds(15));
-        $("[data-test-id=notification] .notification__content")
-                .shouldHave(Condition.text("Встреча успешно забронирована на " + date));
+        $("[data-test-id=success-notification] .notification__content")
+                .shouldHave(Condition.text("Встреча успешно запланирована на " + date));
     }
 
     @Test
@@ -82,7 +82,7 @@ public class CardDeliveryTest {
         String date = DataGenerator.generateDate(3);
         fillAndSubmitForm(user, date);
 
-        $("[data-test-id=notification]")
+        $("[data-test-id=success-notification]")
                 .shouldBe(Condition.visible, Duration.ofSeconds(15));
     }
 
